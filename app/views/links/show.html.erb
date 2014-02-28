@@ -1,0 +1,11 @@
+<h1><%= @link.title %></h1>
+<%= @link.url %><br>
+<%= @link.body %><br>
+
+<h3>Subs:</h3>
+<% @link.subs.each do |sub| %>
+  <%= link_to sub.name, sub_url(sub) %><br>
+<% end %>
+
+<%= link_to "Edit Link", edit_link_url(@link) %>
+<%= link_to "Back to Links", links_url %>

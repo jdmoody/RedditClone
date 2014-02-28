@@ -1,0 +1,19 @@
+<%= render "layouts/errors" %>
+
+<form action="<%= subs_url %>" method="post" accept-charset="utf-8">
+  <%= auth_token %>
+  <label for="name">Name</label><input type="text" name="sub[name]" value="<%= @sub.name %>" id="name">
+
+  <% @sub.links.each_with_index do |link, i| %>
+  <h3> Link <%= i + 1 %> </h3>
+  <br>
+  <label for="link<%= i %>title"> Title</label><input type="text" name="links[<%= i %>][title]" value="<%= link.title %>" id="link<%= i %>title">
+  <br>
+  <label for="link<%= i %>url">URL</label><input type="text" name="links[<%= i %>][url]" value="<%= link.url %>" id="link<%= i %>url">
+  <br>
+
+  <label for="link<%= i %>body">Text</label><input type="text" name="links[<%= i %>][body]" value="<%= link.body %>" id="link<%= i %>body">
+  <br>
+  <% end %>
+  <p><input type="submit" value="Create Sub"></p>
+</form>

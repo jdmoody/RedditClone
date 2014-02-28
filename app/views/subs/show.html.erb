@@ -1,0 +1,12 @@
+<h1><%= @sub.name %></h1>
+<%= link_to "Submit a Link", new_sub_link_url(@sub) %>
+
+<% @sub.links.each do |link| %>
+<hr>
+  <h3>
+    <%= link_to link.title, link_url(link) %>
+  </h3>
+  <%= link.url %><br>
+  <%= link.body %>
+</hr>
+<% end %>

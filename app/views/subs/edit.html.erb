@@ -1,0 +1,10 @@
+<%= render "layouts/errors" %>
+
+<form action="<%= sub_url(@sub) %>" method="post" accept-charset="utf-8">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="PATCH" id="_method">
+
+  <label for="name">Name</label><input type="text" name="sub[name]" value="<%= @sub.name %>" id="name">
+  <br>
+  <p><input type="submit" value="Update Sub"></p>
+</form>
